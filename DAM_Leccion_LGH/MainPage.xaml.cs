@@ -1,4 +1,6 @@
-﻿namespace DAM_Leccion_LGH
+﻿using DAM_Leccion_LGH.Model;
+
+namespace DAM_Leccion_LGH
 {
     public partial class MainPage : ContentPage
     {
@@ -19,6 +21,16 @@
                 CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+        public void Ejecutar()
+        {
+            PersonaModel personaModel = new PersonaModel();
+            personaModel.Nombre = "Hola aqui estoy";
+            txtNombre.Text = "hola aqui estoy";
+        }
+        private void Aceptar_Clicked(object sender, EventArgs e)
+        {
+            DisplayAlert("Asistente del sitema", "Se ha guardado el registro en la BD", "Aceptar");
         }
     }
 
