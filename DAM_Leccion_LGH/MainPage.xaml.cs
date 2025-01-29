@@ -1,4 +1,5 @@
 ﻿using DAM_Leccion_LGH.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DAM_Leccion_LGH
 {
@@ -25,10 +26,21 @@ namespace DAM_Leccion_LGH
         public void Ejecutar()
         {
             PersonaModel personaModel = new PersonaModel();
-            personaModel.Nombre = "Hola aqui estoy";
-            txtNombre.Text = "hola aqui estoy";
+            {
+                Nombre = "Hola aqui estoy",
+
+            };
+            BindingContext = personaModel.Nombre;
+
+            //txtNombre.Text = "hola aqui estoy";
+
+            //Binding personaBinding = new Binding();
+            //personaBinding.Source = personaModel; // origen 
+            //personaBinding.Path = "Nombre"; // Ruta
+            //txtNombre.SetBinding(Entry.TextProperty, personaBinding); // destino final
         }
-        private void Aceptar_Clicked(object sender, EventArgs e)
+
+        private void btnAceptar_Clicked(object sender, EventArgs e)
         {
             DisplayAlert("Asistente del sitema", "Se ha guardado el registro en la BD", "Aceptar");
         }
